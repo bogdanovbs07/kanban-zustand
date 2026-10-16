@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  background: $color-card-bg;
+  border-radius: $radius-md;
+  padding: $space-md;
+  @include card-shadow;
+  @include flex(column, flex-start, stretch);
+  gap: $space-sm;
+}
+
+.header {
+  @include flex(row, space-between, flex-start);
+  gap: $space-sm;
+}
+
+.title {
+  margin: 0;
+  font-size: $font-size-md;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.description {
+  margin: 0;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: 1.4;
+}
+
+.actions,
+.movers {
+  @include flex(row, flex-end, center);
+  gap: $space-xs;
+}
+
+.movers {
+  justify-content: space-between;
+  border-top: 1px solid $color-border;
+  padding-top: $space-sm;
+}
+
+.iconBtn {
+  @include button-reset;
+  color: $color-text-muted;
+  padding: $space-xs;
+  border-radius: $radius-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: $color-text;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &.danger:hover {
+    color: $color-danger;
+  }
+}
