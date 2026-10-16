@@ -1,0 +1,126 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: $color-overlay;
+  @include flex(row, center, center);
+  padding: $space-lg;
+  z-index: 100;
+}
+
+.modal {
+  background: $color-card-bg;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  width: 100%;
+  max-width: 480px;
+  padding: $space-xl;
+  @include flex(column, flex-start, stretch);
+  gap: $space-lg;
+}
+
+.header {
+  @include flex(row, space-between, center);
+}
+
+.title {
+  margin: 0;
+  font-size: $font-size-xl;
+}
+
+.form {
+  @include flex(column, flex-start, stretch);
+  gap: $space-md;
+}
+
+.field {
+  @include flex(column, flex-start, stretch);
+  gap: $space-xs;
+}
+
+.label {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  font-weight: 500;
+}
+
+.input,
+.textarea,
+.select {
+  font-family: inherit;
+  font-size: $font-size-md;
+  padding: $space-sm $space-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  color: $color-text;
+  background: $color-card-bg;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.actions {
+  @include flex(row, flex-end, center);
+  gap: $space-sm;
+  margin-top: $space-sm;
+}
+
+.btnPrimary,
+.btnSecondary {
+  @include button-reset;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-sm;
+  font-size: $font-size-md;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.btnPrimary {
+  background: $color-primary;
+  color: #fff;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+}
+
+.btnSecondary {
+  background: transparent;
+  color: $color-text;
+
+  &:hover {
+    background: rgba(9, 30, 66, 0.08);
+  }
+}
+
+.iconBtn {
+  @include button-reset;
+  color: $color-text-muted;
+  padding: $space-xs;
+  border-radius: $radius-sm;
+  display: inline-flex;
+
+  &:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: $color-text;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
