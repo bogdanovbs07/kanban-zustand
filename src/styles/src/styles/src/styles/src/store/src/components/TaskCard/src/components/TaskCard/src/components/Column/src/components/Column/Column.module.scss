@@ -1,0 +1,69 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.column {
+  background: $color-column-bg;
+  border-radius: $radius-lg;
+  padding: $space-md;
+  min-width: 260px;
+  max-width: 300px;
+  flex: 0 0 auto;
+  @include flex(column, flex-start, stretch);
+  gap: $space-md;
+  max-height: calc(100vh - 160px);
+}
+
+.header {
+  @include flex(row, space-between, center);
+  gap: $space-sm;
+}
+
+.title {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  @include truncate;
+}
+
+.actions {
+  @include flex(row, flex-end, center);
+  gap: $space-xs;
+}
+
+.list {
+  @include flex(column, flex-start, stretch);
+  gap: $space-sm;
+  overflow-y: auto;
+  padding-right: $space-xs;
+}
+
+.empty {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-align: center;
+  margin: $space-sm 0;
+}
+
+.iconBtn {
+  @include button-reset;
+  color: $color-text-muted;
+  padding: $space-xs;
+  border-radius: $radius-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: $color-text;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &.danger:hover {
+    color: $color-danger;
+  }
+}
