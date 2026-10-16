@@ -1,0 +1,47 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.board {
+  min-height: 100vh;
+  padding: $space-xl;
+  @include flex(column, flex-start, stretch);
+  gap: $space-lg;
+}
+
+.header {
+  @include flex(row, space-between, center);
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.addColumn {
+  @include button-reset;
+  @include flex(row, center, center);
+  gap: $space-sm;
+  background: $color-primary;
+  color: #fff;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-sm;
+  font-size: $font-size-md;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.columns {
+  @include flex(row, flex-start, flex-start);
+  gap: $space-lg;
+  overflow-x: auto;
+  padding-bottom: $space-md;
+}
